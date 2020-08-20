@@ -26,6 +26,8 @@ import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/line'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
+import 'echarts/lib/component/legend'
+import 'echarts/lib/component/legendScroll'
 import 'echarts/lib/component/dataZoom'
 
 import source from './source'
@@ -68,10 +70,23 @@ export default {
             yAxisIndex: [0]
           }
         ],
+        legend: {
+          icon: 'circle',
+          itemWidth: 6,
+          itemHeight: 6,
+          type: 'scroll',
+          bottom: 10,
+          left: 10,
+          right: 10,
+          pageIconSize: 10,
+          data: data.map((serie, serieIndex) => ({
+            name: serie.name
+          }))
+        },
         grid: {
-          left: 20,
-          right: 30,
-          bottom: 20,
+          left: 10,
+          right: 10,
+          bottom: 40,
           top: 40,
           containLabel: true
         },
@@ -84,9 +99,6 @@ export default {
             fontWeight: 500,
             fontSize: 16
           }
-        },
-        legend: {
-          data: ['销量']
         },
         tooltip: {
           trigger: 'axis',
@@ -145,6 +157,7 @@ export default {
           })
         }))
       }
+      console.log(option)
       // 使用刚指定的配置项和数据显示图表。
       this.chart.setOption(option, true)
     },
