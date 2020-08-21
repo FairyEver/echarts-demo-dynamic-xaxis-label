@@ -70,44 +70,12 @@ export default {
             yAxisIndex: [0]
           }
         ],
-        legend: {
-          icon: 'circle',
-          itemWidth: 6,
-          itemHeight: 6,
-          type: 'scroll',
-          bottom: 10,
-          left: 10,
-          right: 10,
-          pageIconSize: 10,
-          data: data.map((serie, serieIndex) => ({
-            name: serie.name
-          }))
-        },
         grid: {
           left: 10,
           right: 10,
-          bottom: 40,
-          top: 40,
-          containLabel: true
-        },
-        title: {
-          left: 'center',
+          bottom: 10,
           top: 10,
-          text: '价格趋势图',
-          textStyle: {
-            color: '#333333',
-            fontWeight: 500,
-            fontSize: 16
-          }
-        },
-        tooltip: {
-          trigger: 'axis',
-          formatter: function (params) {
-            return params.map(param => `${param.seriesName} ${param.axisValue} ${param.data[1]}`).join('<br/>')
-          },
-          axisPointer: {
-            animation: false
-          }
+          containLabel: true
         },
         xAxis: {
           data: days,
