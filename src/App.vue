@@ -81,11 +81,24 @@ export default {
             animation: false
           }
         },
+        legend: {
+          icon: 'circle',
+          itemWidth: 6,
+          itemHeight: 6,
+          type: 'scroll',
+          bottom: 10,
+          left: 10,
+          right: 10,
+          pageIconSize: 10,
+          data: data.map((serie, serieIndex) => ({
+            name: serie.name
+          }))
+        },
         grid: {
           left: 10,
           right: 10,
-          bottom: 10,
-          top: 10,
+          bottom: 40,
+          top: 40,
           containLabel: true
         },
         xAxis: {
